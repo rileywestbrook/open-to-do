@@ -3,7 +3,8 @@ require 'rails_helper'
 RSpec.describe ListSerializer, :type => :serializer do
 
   describe 'List Representation' do
-    let(:list) { @list = create(:list) }
+    let(:user) { @user = create(:user) }
+    let(:list) { create(:list, user: user) }
     let(:serializer) { ListSerializer.new(list) }
     let(:serialization) { ActiveModel::Serializer::Adapter.create(serializer) }
 

@@ -3,7 +3,9 @@ require 'rails_helper'
 RSpec.describe ItemSerializer, :type => :serializer do
 
   describe 'Item Representation' do
-    let(:item) { @item = create(:item) }
+    let(:user) { @user = create(:user) }
+    let(:list) { create(:list, user: user) }
+    let(:item) { create(:item, list: list) }
     let(:serializer) { ItemSerializer.new(item) }
     let(:serialization) { ActiveModel::Serializer::Adapter.create(serializer) }
 
