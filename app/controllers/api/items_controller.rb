@@ -16,9 +16,9 @@ class Api::ItemsController < ApiController
     list = List.find(params[:id])
     item = Item.find(params[:id])
     if (current_user == item.list.user) && item.update(item_params)
-      render json: list
+      render json: item
     else
-      render json: { errors: list.errors.full_messages }, status: :unprocessable_entity
+      render json: { errors: item.errors.full_messages }, status: :unprocessable_entity
     end
   end
 
